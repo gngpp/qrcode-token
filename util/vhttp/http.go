@@ -1,16 +1,16 @@
 package vhttp
 
 import (
-	"bytes"
-	"encoding/json"
 	"net/http"
-	"time"
+	"net/url"
+	"strings"
 )
+
+var defaultClient = CreateClient()
 
 // Get Send GET request
 func Get(url string) (response *http.Response, err error) {
-	client := http.Client{Timeout: 5 * time.Second}
-	resp, err := client.Get(url)
+	resp, err := defaultClient.Get(url)
 	if err != nil {
 		return nil, err
 	}
@@ -18,17 +18,15 @@ func Get(url string) (response *http.Response, err error) {
 }
 
 // Post Send POST request
-func Post(url string, data interface{}, contentType string) (response *http.Response, err error) {
-	jsonStr, _ := json.Marshal(data)
-	req, err := http.NewRequest("POST", url, bytes.NewBuffer(jsonStr))
+func Post(url string, contentType string, data url.Values) (response *http.Response, err error) {
+	req, err := http.NewRequest("POST", url, strings.NewReader(data.Encode()))
 	req.Header.Add("content-type", contentType)
 	if err != nil {
 		return nil, err
 	}
 	defer req.Body.Close()
 
-	client := &http.Client{Timeout: 5 * time.Second}
-	response, err = client.Do(req)
+	response, err = defaultClient.Do(req)
 	if err != nil {
 		return nil, err
 	}
