@@ -7,6 +7,9 @@
 # 拉取源码
 git clone https://github.com/zf1976/AliyunPanToken.git && cd AliyunPanToken
 
+# 拉取依赖
+go mod tidy
+
 # 编译
 go build -ldflags="-s -w" -o app main.go
 
