@@ -65,10 +65,19 @@ func (qr *QrCode) Get() ([]byte, error) {
 }
 
 func (qr *QrCode) Output(out ...io.Writer) {
+	config := qrterminal.Config{
+		Level:     qrterminal.L,
+		Writer:    os.Stdout,
+		BlackChar: qrterminal.BLACK,
+		WhiteChar: qrterminal.WHITE,
+		QuietZone: 1,
+	}
+
 	if len(out) == 0 {
-		qrterminal.Generate(qr.content, qrterminal.L, os.Stdout)
+		qrterminal.GenerateWithConfig(qr.content, config)
 	} else if len(out) > 0 {
 		multiWriter := io.MultiWriter(out...)
-		qrterminal.Generate(qr.content, qrterminal.L, multiWriter)
+		config.Writer = multiWriter
+		qrterminal.GenerateWithConfig(qr.content, config)
 	}
 }
