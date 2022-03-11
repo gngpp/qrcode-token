@@ -16,7 +16,7 @@ go build -ldflags="-s -w" -o app main.go
 # 执行
 ./app
 ```
-- openwrt环境下需要安装gcc（一般默认不会自带）
+- openwrt环境下需要安装gcc（固件一般不会自带）
 ```shell
 opkg update && opkg install gcc
 ar -rc /usr/lib/libpthread.a
