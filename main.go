@@ -3,7 +3,6 @@ package main
 import (
 	"AliyunPanToken/qrcode"
 	"github.com/gin-gonic/gin"
-	"github.com/zf1976/vlog"
 	"net/http"
 )
 
@@ -84,13 +83,12 @@ func main() {
 	//if err != nil {
 	//	return
 	//}
-	vlog.SetLevel(vlog.Level.DEBUG)
 	qr := &qrcode.Api{}
 	content, err := qr.GetQrCodeContent()
 	if err != nil {
 		return
 	}
 	println(content)
-	q := qrcode.NewQrCode(content.CodeContent, true)
-	println(string(q.Get()))
+	q := qrcode.NewQrCode(content.CodeContent, false)
+	q.Output()
 }
