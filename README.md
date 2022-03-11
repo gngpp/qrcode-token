@@ -16,5 +16,5 @@ go build -ldflags="-s -w" -o app main.go
 
 ### 示例
 
-<img src="./img/iShot2022-03-11 20.19.46.png"/>
-<img src="./img/iShot2022-03-11 20.20.48.png"/>
+<img src="img/img1.png"/>
+<img src="img/img2.png"/>
