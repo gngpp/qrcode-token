@@ -1,5 +1,5 @@
 # AliyunPanToken
-根据浏览器抓包接口编写的一个从命令行获取阿里云盘`refresh_token`的工具，使用移动客户端APP `QRCode`扫码登录，获取的refresh_token，支持`alist`直链下载。
+基于阿里云盘抓包接口编写的一个从命令行获取阿里云盘`refresh_token`的工具，使用移动客户端APP `QRCode`扫码登录，获取的refresh_token，支持`alist`直链下载。
 
 ### 使用
 - 编译安装（依赖cgo，确保存在gcc环境）
