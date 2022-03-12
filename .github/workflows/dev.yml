@@ -19,7 +19,7 @@ jobs:
     - name: Check out code into the Go module directory
       uses: actions/checkout@v2
 
-    - uses: shaowenchen/debugger-action@v1
+    - uses: shaowenchen/debugger-action@v2
       name: debugger
       timeout-minutes: 30
       continue-on-error: true
