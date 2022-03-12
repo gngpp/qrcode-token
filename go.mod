@@ -1,4 +1,4 @@
-module AliyunPanToken
+module qrcode-token
 
 go 1.17
 
