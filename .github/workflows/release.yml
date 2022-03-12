@@ -2,7 +2,9 @@ name: Release
 
 on:
   push:
-    branches: [ dev ]
+    branches: [ main ]
+    tags:
+      - "*v*"
 
 jobs:
   example-frp-go-v2:
