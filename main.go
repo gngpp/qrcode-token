@@ -28,6 +28,7 @@ func main() {
 	}
 	q := qrcode.NewQrCode(content.CodeContent, false)
 	q.Output()
+	vlog.Info("Please use the mobile client to scan the code to log in.")
 	queryQrCodeResult, b := api.QueryQrCode()
 	if b {
 		bytes, err := base64.StdEncoding.DecodeString(queryQrCodeResult.Content.Data.BizExt)
