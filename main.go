@@ -1,14 +1,14 @@
 package main
 
 import (
-	"AliyunPanToken/qrcode"
-	"AliyunPanToken/qrcode/model"
-	"AliyunPanToken/util/vjson"
 	"encoding/base64"
 	"github.com/zf1976/vlog"
 	"github.com/zf1976/vlog/timewriter"
 	"io"
 	"os"
+	"qrcode-token/qrcode"
+	"qrcode-token/qrcode/model"
+	"qrcode-token/util/vjson"
 )
 
 func main() {

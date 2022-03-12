@@ -1,10 +1,10 @@
 package testing
 
 import (
-	"AliyunPanToken/util/vjson"
 	"encoding/base64"
 	"fmt"
 	"github.com/zf1976/vlog"
+	"qrcode-token/util/vjson"
 	"testing"
 )
 

@@ -1,14 +1,14 @@
 package qrcode
 
 import (
-	"AliyunPanToken/qrcode/model"
-	"AliyunPanToken/util/vhttp"
-	"AliyunPanToken/util/vjson"
 	"errors"
 	"github.com/zf1976/vlog"
 	"io/ioutil"
 	"net/http"
 	"net/url"
+	"qrcode-token/qrcode/model"
+	"qrcode-token/util/vhttp"
+	"qrcode-token/util/vjson"
 	"strconv"
 	"sync"
 	"time"
