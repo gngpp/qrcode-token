@@ -2,7 +2,7 @@
 基于阿里云盘抓包接口编写的一个从命令行`QR Code`扫码获取阿里云盘`refresh_token`的工具，使用移动客户端APP `QRCode`扫码登录，获取的refresh_token，支持`alist`直链下载。
 
 ### 使用
-- 编译安装（依赖cgo，确保存在gcc环境）
+- 自行编译安装（依赖cgo，确保存在gcc环境）
 ```shell
 # 拉取源码
 git clone https://github.com/zf1976/qrcode-token.git && cd qrcode-token
@@ -16,13 +16,23 @@ go build -ldflags="-s -w" -o app main.go
 # 执行
 ./app
 ```
-- openwrt环境下需要安装gcc（固件一般不会自带）
+> openwrt环境下需要安装gcc（固件一般不会自带）
 ```shell
 opkg update && opkg install gcc
 ar -rc /usr/lib/libpthread.a
 ```
 
+- 下载Release包
+```shell
+wget https://github.com/zf1976/qrcode-token/releases/download/v1.0/linux_amd64_qrcode-token.tar.gz
+tar zxvf ./linux_amd64_qrcode-token.tar.gz
+# 放在Linux bin目录可以直接执行了
+mv ./qrcode-token /usr/bin
+```
+
+
 ### 示例
+
 
 <img src="img/img1.png"/>
 <img src="img/img2.png"/>
