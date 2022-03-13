@@ -2,6 +2,7 @@ package main
 
 import (
 	"encoding/base64"
+	"fmt"
 	"github.com/zf1976/vlog"
 	"github.com/zf1976/vlog/timewriter"
 	"io"
@@ -27,8 +28,8 @@ func main() {
 		return
 	}
 	q := qrcode.NewQrCode(content.CodeContent, false)
-	q.Output()
-	vlog.Info("Please use the mobile client to scan the code to log in.")
+	q.Print()
+	fmt.Println("Please use the mobile client to scan the code to log in.")
 	queryQrCodeResult, b := api.QueryQrCode()
 	if b {
 		bytes, err := base64.StdEncoding.DecodeString(queryQrCodeResult.Content.Data.BizExt)

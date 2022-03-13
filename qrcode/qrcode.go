@@ -14,15 +14,16 @@ import (
 const Size = 256
 
 type QrCode struct {
-	content string
-	img     image.Image
-	genImg  bool
+	content       string
+	qrcode        []byte
+	img           image.Image
+	generateImage bool
 }
 
-func NewQrCode(content string, genImg bool) *QrCode {
+func NewQrCode(content string, generateImage bool) *QrCode {
 	qr := &QrCode{
-		content: content,
-		genImg:  genImg,
+		content:       content,
+		generateImage: generateImage,
 	}
 	err := qr.generateQrCode()
 	if err != nil {
@@ -40,6 +41,7 @@ func (qr *QrCode) generateQrCode() error {
 	if err != nil {
 		return err
 	}
+	qr.qrcode = code
 	buf := bytes.NewBuffer(code)
 	img, err = png.Decode(buf)
 	if err != nil {
@@ -47,7 +49,7 @@ func (qr *QrCode) generateQrCode() error {
 	}
 	qr.img = img
 
-	if qr.genImg {
+	if qr.generateImage {
 		newPng, _ := os.Create("qrcode.png")
 		defer newPng.Close()
 		png.Encode(newPng, img)
@@ -57,14 +59,17 @@ func (qr *QrCode) generateQrCode() error {
 }
 
 func (qr *QrCode) Get() ([]byte, error) {
-	encode, err := qrcode.Encode(qr.content, qrcode.Medium, Size)
+	if len(qr.qrcode) > 0 {
+		return qr.qrcode, nil
+	}
+	err := qr.generateQrCode()
 	if err != nil {
 		return nil, err
 	}
-	return encode, nil
+	return qr.qrcode, nil
 }
 
-func (qr *QrCode) Output(out ...io.Writer) {
+func (qr *QrCode) Print(out ...io.Writer) {
 	config := qrterminal.Config{
 		Level:     qrterminal.L,
 		Writer:    os.Stdout,
