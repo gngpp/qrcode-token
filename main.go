@@ -41,7 +41,6 @@ func main() {
 		if err != nil {
 			return
 		}
-		vlog.Infof("login result:\n%v", vjson.PrettifyString(result))
 		vlog.Infof("refresh_token: %v", result.PdsLoginResult.RefreshToken)
 	}
 }
