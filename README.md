@@ -28,6 +28,9 @@ wget https://github.com/zf1976/qrcode-token/releases/download/v1.0/linux_amd64_q
 tar zxvf ./linux_amd64_qrcode-token.tar.gz
 # 放在Linux bin目录可以直接执行了
 mv ./qrcode-token /usr/bin
+
+# macOS
+mv ./qrcode-token /usr/local/bin
 ```
 
 
