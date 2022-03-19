@@ -2,7 +2,6 @@ package qrcode
 
 import (
 	"errors"
-	"github.com/zf1976/vlog"
 	"io/ioutil"
 	"net/http"
 	"net/url"
@@ -12,6 +11,8 @@ import (
 	"strconv"
 	"sync"
 	"time"
+
+	"github.com/zf1976/vlog"
 )
 
 const (
@@ -21,10 +22,9 @@ const (
 )
 
 type Api struct {
-	qrCodeCK     *model.QrCodeCK
-	qrCodeResult *model.QueryQrCodeResult
-	generateMux  sync.Mutex
-	queryMux     sync.Mutex
+	qrCodeCK    *model.QrCodeCK
+	generateMux sync.Mutex
+	queryMux    sync.Mutex
 }
 
 func (_this *Api) GetQrCodeContent() (*model.QrCodeCK, error) {
@@ -35,10 +35,8 @@ func (_this *Api) GetQrCodeContent() (*model.QrCodeCK, error) {
 		return nil, globalErr
 	}
 	body := get.Body
-	//goland:noinspection GoUnhandledErrorResult
 	defer body.Close()
-
-	bytes, globalErr := ioutil.ReadAll(body)
+	bytes, _ := ioutil.ReadAll(body)
 	q := model.QrCodeGenerateResult{}
 	globalErr = vjson.ByteArrayConvert(bytes, &q)
 	if globalErr != nil {
@@ -46,6 +44,7 @@ func (_this *Api) GetQrCodeContent() (*model.QrCodeCK, error) {
 		return nil, globalErr
 	}
 	vlog.Debugf("qrcode content result json:\n%v", vjson.PrettifyString(q))
+	
 	content := q.Content
 	if content.Success {
 		result := model.QrCodeCK{
@@ -63,7 +62,7 @@ func (_this *Api) GetQrCodeContent() (*model.QrCodeCK, error) {
 	return nil, errors.New(content.Data.TitleMsg)
 }
 
-func (_this Api) GetQrCodeCK() *model.QrCodeCK {
+func (_this *Api) GetQrCodeCK() *model.QrCodeCK {
 	return _this.qrCodeCK
 }
 
@@ -86,7 +85,8 @@ func (_this *Api) QueryQrCode() (*model.QueryQrCodeResult, bool) {
 		}
 		var globalErr error
 		body := response.Body
-		bytes, err := ioutil.ReadAll(body)
+		defer body.Close()
+		bytes, _ := ioutil.ReadAll(body)
 		vlog.Debugf("query qrcode row json result:\n%v", string(bytes))
 
 		_this.queryMux.Lock()
