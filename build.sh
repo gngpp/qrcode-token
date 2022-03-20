@@ -38,16 +38,20 @@ CGO_ENABLED=0 GOOS=linux GOARCH=mips64le go build -ldflags="-s -w" -o qrcode-tok
 tar -czvf linux_mips64le_qrcode-token.tar.gz ./qrcode-token
 
 CGO_ENABLED=0 GOOS=linux GOARCH=mipsle go build -ldflags="-s -w" -o qrcode-token ./main.go
-tar -czvf linux_mipsle_qrcode-token.tar.gz ./qrcode-token.exe
+tar -czvf linux_mipsle_qrcode-token.tar.gz ./qrcode-token
 
 CGO_ENABLED=0 GOOS=linux GOARCH=mips go build -ldflags="-s -w" -o qrcode-token ./main.go
-tar -czvf linux_mips_qrcode-token.tar.gz ./qrcode-token.exe
+tar -czvf linux_mips_qrcode-token.tar.gz ./qrcode-token
 
 CGO_ENABLED=0 GOOS=windows GOARCH=386 go build -ldflags="-s -w" -o qrcode-token.exe ./main.go
-tar -czvf windows_386_qrcode-token.tar.gz ./qrcode-token
+tar -czvf windows_386_qrcode-token.tar.gz ./qrcode-token.exe
 
 CGO_ENABLED=0 GOOS=windows GOARCH=amd64 go build -ldflags="-s -w" -o qrcode-token.exe ./main.go
-tar -czvf windows_amd64_qrcode-token.tar.gz ./qrcode-token
+tar -czvf windows_amd64_qrcode-token.tar.gz ./qrcode-token.exe
 
 CGO_ENABLED=0 GOOS=darwin GOARCH=amd64 go build -ldflags="-s -w" -o qrcode-token ./main.go
 tar -czvf darwin_amd64_qrcode-token.tar.gz ./qrcode-token
+
+CGO_ENABLED=0 GOOS=darwin GOARCH=arm64 go build -ldflags="-s -w" -o qrcode-token ./main.go
+tar -czvf darwin_amd64_qrcode-token.tar.gz ./qrcode-token
+
