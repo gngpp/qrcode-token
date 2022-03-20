@@ -6,6 +6,7 @@
 *.dylib
 logs
 .idea
+go.sum
 
 # Test binary, built with `go test -c`
 *.test

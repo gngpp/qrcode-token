@@ -53,5 +53,5 @@ CGO_ENABLED=0 GOOS=darwin GOARCH=amd64 go build -ldflags="-s -w" -o qrcode-token
 tar -czvf darwin_amd64_qrcode-token.tar.gz ./qrcode-token
 
 CGO_ENABLED=0 GOOS=darwin GOARCH=arm64 go build -ldflags="-s -w" -o qrcode-token ./main.go
-tar -czvf darwin_amd64_qrcode-token.tar.gz ./qrcode-token
+tar -czvf darwin_arm64_qrcode-token.tar.gz ./qrcode-token
 
