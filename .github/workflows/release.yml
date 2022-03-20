@@ -47,6 +47,7 @@ jobs:
             linux_mipsle_qrcode-token.tar.gz
             linux_mips_qrcode-token.tar.gz
             darwin_amd64_qrcode-token.tar.gz
+            darwin_arm64_qrcode-token.tar.gz
             windows_386_qrcode-token.tar.gz
             windows_amd64_qrcode-token.tar.gz
         env:
