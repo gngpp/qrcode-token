@@ -33,10 +33,10 @@ mv ./qrcode-token /usr/bin
 # macOS
 mv ./qrcode-token /usr/local/bin
 ```
-
+### FAQ
+> 如果有需要其他网盘的，可以扫码登录的可以提issue跟我说
 
 ### 示例
-
 
 <img src="img/img1.png"/>
 <img src="img/img2.png"/>
