@@ -27,7 +27,7 @@ type Api struct {
 	queryMux    sync.Mutex
 }
 
-func (_this *Api) GetQrCodeContent() (*model.QueryQrCodeCKForm, error) {
+func (_this *Api) GetGeneratorQrCodeContent() (*model.QueryQrCodeCKForm, error) {
 	var globalErr error
 	get, globalErr := http.Get("https://passport.aliyundrive.com/newlogin/qrcode/generate.do?appName=aliyun_drive&isMobile=true")
 	if globalErr != nil {
@@ -66,7 +66,7 @@ func (_this *Api) GetQrCodeCK() *model.QueryQrCodeCKForm {
 	return _this.qrCodeCK
 }
 
-func (_this *Api) QueryQrCode() (*model.QueryQrCodeResult, bool) {
+func (_this *Api) GetQueryQrCodeResult() (*model.QueryQrCodeResult, bool) {
 	values := url.Values{}
 	_this.generateMux.Lock()
 	values.Add("t", _this.qrCodeCK.T)

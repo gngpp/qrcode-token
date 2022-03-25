@@ -23,14 +23,14 @@ func main() {
 	vlog.SetSyncOutput(true)
 	vlog.SetOutput(io.MultiWriter(os.Stdout, timeWriter))
 	api := &qrcode.Api{}
-	content, err := api.GetQrCodeContent()
+	content, err := api.GetGeneratorQrCodeContent()
 	if err != nil {
 		return
 	}
 	q := qrcode.NewQrCode(content.CodeContent, false)
 	q.Print()
 	fmt.Println("Please use the mobile client to scan the code to log in.")
-	qrCodeResult, b := api.QueryQrCode()
+	qrCodeResult, b := api.GetQueryQrCodeResult()
 	if b {
 		bytes, err := base64.StdEncoding.DecodeString(qrCodeResult.Content.Data.BizExt)
 		if err != nil {
