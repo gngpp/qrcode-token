@@ -2,7 +2,7 @@ package model
 
 import "time"
 
-type QrCodeGenerateResult struct {
+type GeneratorQrCodeResult struct {
 	Content struct {
 		Data struct {
 			T           int64  `json:"t,omitempty"`
@@ -20,7 +20,7 @@ type QrCodeGenerateResult struct {
 	HasError bool `json:"hasError"`
 }
 
-type QrCodeCK struct {
+type QueryQrCodeCKForm struct {
 	T           string
 	CodeContent string
 	CK          string

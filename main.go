@@ -30,9 +30,9 @@ func main() {
 	q := qrcode.NewQrCode(content.CodeContent, false)
 	q.Print()
 	fmt.Println("Please use the mobile client to scan the code to log in.")
-	queryQrCodeResult, b := api.QueryQrCode()
+	qrCodeResult, b := api.QueryQrCode()
 	if b {
-		bytes, err := base64.StdEncoding.DecodeString(queryQrCodeResult.Content.Data.BizExt)
+		bytes, err := base64.StdEncoding.DecodeString(qrCodeResult.Content.Data.BizExt)
 		if err != nil {
 			return
 		}

@@ -22,12 +22,12 @@ const (
 )
 
 type Api struct {
-	qrCodeCK    *model.QrCodeCK
+	qrCodeCK    *model.QueryQrCodeCKForm
 	generateMux sync.Mutex
 	queryMux    sync.Mutex
 }
 
-func (_this *Api) GetQrCodeContent() (*model.QrCodeCK, error) {
+func (_this *Api) GetQrCodeContent() (*model.QueryQrCodeCKForm, error) {
 	var globalErr error
 	get, globalErr := http.Get("https://passport.aliyundrive.com/newlogin/qrcode/generate.do?appName=aliyun_drive&isMobile=true")
 	if globalErr != nil {
@@ -37,17 +37,17 @@ func (_this *Api) GetQrCodeContent() (*model.QrCodeCK, error) {
 	body := get.Body
 	defer body.Close()
 	bytes, _ := ioutil.ReadAll(body)
-	q := model.QrCodeGenerateResult{}
+	q := model.GeneratorQrCodeResult{}
 	globalErr = vjson.ByteArrayConvert(bytes, &q)
 	if globalErr != nil {
 		vlog.Errorf("convert body error: %v", globalErr)
 		return nil, globalErr
 	}
 	vlog.Debugf("qrcode content result json:\n%v", vjson.PrettifyString(q))
-	
+
 	content := q.Content
 	if content.Success {
-		result := model.QrCodeCK{
+		result := model.QueryQrCodeCKForm{
 			T:           strconv.FormatInt(content.Data.T, 10),
 			CodeContent: content.Data.CodeContent,
 			CK:          content.Data.Ck,
@@ -62,7 +62,7 @@ func (_this *Api) GetQrCodeContent() (*model.QrCodeCK, error) {
 	return nil, errors.New(content.Data.TitleMsg)
 }
 
-func (_this *Api) GetQrCodeCK() *model.QrCodeCK {
+func (_this *Api) GetQrCodeCK() *model.QueryQrCodeCKForm {
 	return _this.qrCodeCK
 }
 
