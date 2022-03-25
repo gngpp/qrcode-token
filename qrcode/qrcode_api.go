@@ -85,10 +85,10 @@ func (_this *Api) GetQueryQrCodeResult() (*model.QueryQrCodeResult, bool) {
 		}
 		var globalErr error
 		body := response.Body
-		defer body.Close()
+
 		bytes, _ := ioutil.ReadAll(body)
 		vlog.Debugf("query qrcode row json result:\n%v", string(bytes))
-
+		_ = body.Close()
 		_this.queryMux.Lock()
 		globalErr = vjson.ByteArrayConvert(bytes, q)
 		_this.queryMux.Unlock()
