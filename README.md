@@ -7,15 +7,12 @@
 ```shell
 # 拉取源码
 git clone https://github.com/zf1976/qrcode-token.git && cd qrcode-token
-
 # 拉取依赖
 go mod tidy
-
 # 编译
-go build -ldflags="-s -w" -o app main.go
-
+go build -ldflags="-s -w" -o qrcode-token main.go
 # 执行
-./app
+./qrcode-token
 ```
 > openwrt环境下需要安装gcc（固件一般不会自带）
 ```shell
