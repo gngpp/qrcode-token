@@ -35,13 +35,13 @@ jobs:
           files: |
             freebsd_386_qrcode-token.tar.gz
             freebsd_amd64_qrcode-token.tar.gz
-            freebsd_arm_qrcode-token.tar.gz
+            freebsd_arm64_qrcode-token.tar.gz
             linux_386_qrcode-token.tar.gz
             linux_amd64_qrcode-token.tar.gz
             linux_arm64_qrcode-token.tar.gz
-            linux_arm_v5_qrcode-token.tar.gz
-            linux_arm_v6_qrcode-token.tar.gz
-            linux_arm_v7_qrcode-token.tar.gz
+            linux_armv5_qrcode-token.tar.gz
+            linux_armv6_qrcode-token.tar.gz
+            linux_armv7_qrcode-token.tar.gz
             linux_mips64le_qrcode-token.tar.gz
             linux_mips64_qrcode-token.tar.gz
             linux_mipsle_qrcode-token.tar.gz
