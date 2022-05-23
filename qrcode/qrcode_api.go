@@ -12,7 +12,7 @@ import (
 	"sync"
 	"time"
 
-	"github.com/zf1976/vlog"
+	"github.com/gngpp/vlog"
 )
 
 const (
@@ -29,7 +29,7 @@ type Api struct {
 
 func (_this *Api) GetGeneratorQrCodeContent() (*model.QueryQrCodeCKForm, error) {
 	var globalErr error
-	get, globalErr := http.Get("https://passport.aliyundrive.com/newlogin/qrcode/generate.do?appName=aliyun_drive&isMobile=true")
+	get, globalErr := http.Get("https://passport.aliyundrive.com/newlogin/qrcode/generate.do?appName=aliyun_drive&isMobile=false")
 	if globalErr != nil {
 		vlog.Errorf("get qrcode error: %v", globalErr.Error())
 		return nil, globalErr

@@ -3,7 +3,7 @@ package testing
 import (
 	"encoding/base64"
 	"fmt"
-	"github.com/zf1976/vlog"
+	"github.com/gngpp/vlog"
 	"qrcode-token/util/vjson"
 	"testing"
 )

@@ -4,7 +4,7 @@ import (
 	"encoding/json"
 	"errors"
 	"fmt"
-	"github.com/zf1976/vlog"
+	"github.com/gngpp/vlog"
 )
 
 func PrettifyString(i interface{}) string {

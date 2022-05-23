@@ -3,8 +3,8 @@ package main
 import (
 	"encoding/base64"
 	"fmt"
-	"github.com/zf1976/vlog"
-	"github.com/zf1976/vlog/timewriter"
+	"github.com/gngpp/vlog"
+	"github.com/gngpp/vlog/timewriter"
 	"io"
 	"os"
 	"qrcode-token/qrcode"

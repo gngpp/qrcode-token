@@ -2,9 +2,9 @@ package qrcode
 
 import (
 	"bytes"
+	"github.com/gngpp/vlog"
 	"github.com/mdp/qrterminal/v3"
 	"github.com/skip2/go-qrcode"
-	"github.com/zf1976/vlog"
 	"image"
 	"image/png"
 	"io"
