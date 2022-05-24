@@ -34,9 +34,9 @@ mv ./qrcode-token /usr/local/bin
 ```shell
 # 获取手机端登陆token
 qrcode-token --mobile=true
+
 # 获取Web端登陆token
-// or qrcode-token --mobole=false
-qrcode-token 
+qrcode-token # or qrcode-token --mobole=false
 ```
 
 ### 示例
