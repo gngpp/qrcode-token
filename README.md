@@ -30,8 +30,6 @@ mv ./qrcode-token /usr/bin
 # macOS
 mv ./qrcode-token /usr/local/bin
 ```
-### FAQ
-> 如果有需要其他网盘的，可以扫码登录的可以提issue跟我说
 
 ### 示例
 
