@@ -22,7 +22,7 @@ ar -rc /usr/lib/libpthread.a
 
 - 下载Release包
 ```shell
-wget https://github.com/gngpp/qrcode-token/releases/download/v1.0/linux_amd64_qrcode-token.tar.gz
+wget https://github.com/gngpp/qrcode-token/releases/download/v1.3/linux_amd64_qrcode-token.tar.gz
 tar zxvf ./linux_amd64_qrcode-token.tar.gz
 # 放在Linux bin目录可以直接执行了
 mv ./qrcode-token /usr/bin
