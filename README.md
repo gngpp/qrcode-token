@@ -30,14 +30,6 @@ mv ./qrcode-token /usr/bin
 # macOS
 mv ./qrcode-token /usr/local/bin
 ```
-- 获取手机端和Web端token
-```shell
-# 获取手机端登陆token
-qrcode-token --mobile=true
-
-# 获取Web端登陆token
-qrcode-token # or qrcode-token --mobole=false
-```
 
 ### 示例
 
